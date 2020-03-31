@@ -28,10 +28,10 @@ resource "aws_launch_configuration" "test1" {
   security_groups = [aws_security_group.web_sg.id]
 
   user_data = <<-EOF
-		#!/bin/bash
-		echo "Hello, world!" > index.html
-		nohup busybox httpd -f -p ${var.int_http_port} &
-		EOF
+    #!/bin/bash
+    echo "Hello, world!" > index.html
+    nohup busybox httpd -f -p ${var.int_http_port} &
+    EOF
 
   lifecycle {
     create_before_destroy = true
